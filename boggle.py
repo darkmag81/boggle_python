@@ -1,6 +1,7 @@
 from string import ascii_uppercase
 from random import choice
 
+
 def make_grid(width,height):
     """
     Creates a grid that will hold all of the tiles
@@ -91,3 +92,26 @@ def get_dictionary(dictionary_file):
     """
     with open(dictionary_file) as f:
         return [w.strip().upper() for w in f]
+        
+
+def main():
+    """
+    This is a function that will run the whole project
+    """
+    grid = make_grid(3, 3)
+    dictionary = get_dictionary('words.txt')
+    words = search(grid, dictionary)
+    for word in words:
+        print(word)
+    print("Found %s words" % len(words))
+    print("+---+---+---+")
+    print("| {0} | {1} | {2} |".format(grid[0, 0], grid[1, 0], grid[2, 0]))
+    print("+---+---+---+")
+    print("| {0} | {1} | {2} |".format(grid[0, 1], grid[1, 1], grid[2, 1]))
+    print("+---+---+---+")
+    print("| {0} | {1} | {2} |".format(grid[0, 2], grid[1, 2], grid[2, 2]))
+    print("+---+---+---+")
+
+
+if __name__ == "__main__":
+   main()
